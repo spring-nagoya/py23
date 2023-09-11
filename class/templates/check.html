@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>入力内容確認</title>
+</head>
+<body>
+    <p>
+        氏名：{{name}}
+    </p>
+    <p>
+        メールアドレス：{{mail}}
+    </p>
+    <p>
+        コメント：{{comment}}
+    </p>
+    <form action="/regist" method="post">
+        <input type="hidden" name="name" value="{{name}}">
+        <input type="hidden" name="mail" value="{{mail}}">
+        <input type="hidden" name="comment" value="{{comment}}">
+        <input type="submit" value="送信">
+    </form>
+</body>
+</html>

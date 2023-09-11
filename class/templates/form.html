@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+    <title>フォームからデータを送信</title>
+</head>
+<body>
+    <form method="get" action="/form_get">
+        <input type="text" name="field_name" value="">
+        <input type="submit" value="送信">
+    </form>
+    
+    <form method="POST" action="/form_post">
+        <input type="text" name="field_name2" value="">
+        <p>
+            <input type="password" name="pwd" value="">
+        </p>
+        <p>
+            <input type="checkbox" name="check" value="1">1
+            <input type="checkbox" name="check" value="2">2
+            <input type="checkbox" name="check" value="3">3
+        </p>
+        <p>
+            <input type="radio" name="radio" value="1">1
+            <input type="radio" name="radio" value="2">2
+            <input type="radio" name="radio" value="3">3
+        </p>
+        <p>
+            <select name="Address">
+                <option value="愛知県">愛知県</option>
+                <option value="岐阜県">岐阜県</option>
+                <option value="三重県">三重県</option>
+            </select>
+        </p>
+        <p>
+            <textarea name="memo" width="30">
+            </textarea>
+        </p>
+        <input type="submit" value="送信">
+    </form>
+</body>
+</html>

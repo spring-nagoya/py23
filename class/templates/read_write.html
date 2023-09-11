@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Flaskでテキストファイルに書込み</h1>
+    <form action="/write" method="post">
+        <input type="text" name="post_text" value="">
+        <input type="submit" value="書き込み">
+    </form>
+
+    <hr>
+
+    {% for text in post_text: %}
+        {{text}}
+    {% endfor %}
+
+</body>
+</html>

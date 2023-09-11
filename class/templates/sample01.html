@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>if文による条件分岐</h1>
+    {% if flg == "False" %}
+    <h2>変数flgはFalseです</h2>
+    <a href="/index?flg=True">再読み込み</a>
+    {% else %}
+    <h2>変数flgはTrueです</h2>
+    <a href="/index?flg=False">再読み込み</a>
+    {% endif %}
+    
+    <a href="/loop">反復処理の確認</a>
+</body>
+</html>
