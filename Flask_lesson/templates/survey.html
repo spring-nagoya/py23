@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>アンケートフォーム</title>
+</head>
+<body>
+    <form action="/check" method="POST">
+        <p>
+            <label for="name">氏名</label>
+            <input type="text" id="name" name="name" value="">
+        </p>
+        <p>
+            <label for="mail">メールアドレス</label>
+            <input type="text" id="mail" name="mail" value="">
+        </p>
+        <p>
+            <label for="comment">コメント</label>
+            <textarea name="comment" id="comment" value=""></textarea>
+        </p>
+        <p>
+            <input type="submit" value="送信">
+        </p>
+    </form>
+</body>
+</html>
