@@ -36,7 +36,7 @@ def delete():
     conn = ""
     cursor = ""
     try:
-        id = request.args.get("id")
+        id = request.args.get("id","")
         conn = conn_db()
         cursor = conn.cursor()
         cursor.execute("DELETE FROM T_sample WHERE id= {0}".format(id))
