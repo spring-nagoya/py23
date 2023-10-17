@@ -41,14 +41,13 @@ def delete():
         cursor = conn.cursor()
         cursor.execute("DELETE FROM T_sample WHERE id= {0}".format(id))
         conn.commit()
-    except mysql.connector.Error as e:
-        print(e)
-
     # SQLインジェクション対策の為に、SQLパラメータを使用したパターン
     # sql = "DELETE FROM T_sample WHERE id= %s"
     # executeメソッドの第二引数にタプル型で値を渡すことで、SQLパラメータに値を当てはめることが可能。
     # ただし、パラメータが1つでも最後にカンマを付ける必要がある。
     # cursor.execute(sql, (id,))
+    except mysql.connector.Error as e:
+        print(e)
     finally:
         if cursor:
             cursor.close()
