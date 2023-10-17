@@ -8,32 +8,40 @@
 </head>
 
 <body>
-  <table>
-    <tr>
-      <td>
-        送信者アドレス:
-      </td>
-      <td>
-        <input type="mail" name="from" value="" required>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        送信先アドレス:
-      </td>
-      <td>
-        <input type="mail" name="to" value="" required>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        送信メッセージ:
-      </td>
-      <td>
-        <textarea name="message" value="" size="50" required></textarea>
-      </td>
-    </tr>
-  </table>
+  <h1>メール送信プログラム</h1>
+  <form action="/mail/" method="POST">
+    <table>
+      <tr>
+        <td>
+          送信者アドレス:
+        </td>
+        <td>
+          <input type="mail" name="from" value="" required>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          送信先アドレス:
+        </td>
+        <td>
+          <input type="mail" name="to" value="" required>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          送信メッセージ:
+        </td>
+        <td>
+          <textarea name="message" value="" size="50" required></textarea>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <input type="submit">
+        </td>
+      </tr>
+    </table>
+  </form>
 </body>
 
 </html>
