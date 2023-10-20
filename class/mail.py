@@ -1,7 +1,8 @@
 from flask import Flask, render_template, redirect, request, url_for
-# from sendmail import send_mail
-# from flask.ext.sendmail import Mail
-# from flask_mail import Mail, Message
+from smtplib import SMTP
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
+from email.utils import formatdate
 
 app = Flask(__name__)
 
