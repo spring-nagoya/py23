@@ -1,6 +1,5 @@
 from flask import Flask, render_template, redirect, request, url_for
-from sendmail import send_mail
-
+# from sendmail import send_mail
 # from flask.ext.sendmail import Mail
 # from flask_mail import Mail, Message
 
