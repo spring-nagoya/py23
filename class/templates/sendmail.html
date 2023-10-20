@@ -9,14 +9,14 @@
 
 <body>
   <h1>メール送信プログラム</h1>
-  <form action="/mail/" method="POST">
+  <form action="/check/" method="POST">
     <table>
       <tr>
         <td>
           送信者アドレス:
         </td>
         <td>
-          <input type="mail" name="from" value="" required>
+          <input type="mail" name="mailForm" value="" required>
         </td>
       </tr>
       <tr>
@@ -24,7 +24,15 @@
           送信先アドレス:
         </td>
         <td>
-          <input type="mail" name="to" value="" required>
+          <input type="mail" name="mailTo" value="" required>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          件名:
+        </td>
+        <td>
+          <input type="text" name="subject" value="" required>
         </td>
       </tr>
       <tr>
