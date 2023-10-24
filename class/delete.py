@@ -26,12 +26,13 @@ def conn_db():
 def index():
     conn = conn_db()
     cursor = conn.cursor()
-    cursor.execute("SELECT * FROM users")
+    sql = "SELECT * FROM T_sample;"
+    cursor.execute(sql)
     result = cursor.fetchall()
     return render_template("index.html", record=result)
 
 
-@app.route("/delete", methods=["GET"])
+@app.route("/delete", methods=["GET,Delete"])
 def delete():
     conn = ""
     cursor = ""
@@ -39,13 +40,60 @@ def delete():
         id = request.args.get("id","")
         conn = conn_db()
         cursor = conn.cursor()
-        cursor.execute("DELETE FROM T_sample WHERE id= {0}".format(id))
+        sql = "DELETE FROM T_sample WHERE id= {0};".format(id)
+        cursor.execute(sql)
         conn.commit()
     # SQLインジェクション対策の為に、SQLパラメータを使用したパターン
     # sql = "DELETE FROM T_sample WHERE id= %s"
     # executeメソッドの第二引数にタプル型で値を渡すことで、SQLパラメータに値を当てはめることが可能。
     # ただし、パラメータが1つでも最後にカンマを付ける必要がある。
     # cursor.execute(sql, (id,))
+    except mysql.connector.Error as e:
+        print(e)
+    finally:
+        if cursor:
+            cursor.close()
+        if conn:
+            conn.close()
+    return redirect(url_for("index"))
+
+@app.route("/create/", methods=["POST"])
+def create():
+    conn = ""
+    cursor = ""
+    # IDをserial型にしているので、idは自動採番される
+    sql = "INSERT INTO T_sample (name, password, email) VALUES (%s, %s, %s);", (name, password, email)
+    try:
+        name = request.form.get("name")
+        password = request.form.get("password")
+        email = request.form.get("email")
+        conn = conn_db()
+        cursor = conn.cursor()
+        cursor.execute(sql)
+        conn.commit()
+    except mysql.connector.Error as e:
+        print(e)
+    finally:
+        if cursor:
+            cursor.close()
+        if conn:
+            conn.close()
+    return redirect(url_for("index"))
+
+@app.route("/update/", methods=["POST"])
+def update():
+    conn = ""
+    cursor = ""
+    sql = "UPDATE T_sample SET name = %s, password = %s email = %s WHERE id = %s;", (name, password, email, id)
+    try:
+        id = request.form.get("id")
+        name = request.form.get("name")
+        password = request.form.get("password")
+        email = request.form.get("email")
+        conn = conn_db()
+        cursor = conn.cursor()
+        cursor.execute(sql)
+        conn.commit()
     except mysql.connector.Error as e:
         print(e)
     finally:
