@@ -24,12 +24,20 @@ def conn_db():
 
 @app.route("/")
 def index():
-    conn = conn_db()
-    cursor = conn.cursor()
-    sql = "SELECT * FROM T_sample;"
-    cursor.execute(sql)
-    result = cursor.fetchall()
-    return render_template("index.html", record=result)
+    try:
+        conn = conn_db()
+        cursor = conn.cursor()
+        sql = "SELECT * FROM T_sample;"
+        cursor.execute(sql)
+        result = cursor.fetchall()
+    except mysql.connector.Error as e:
+        print(e)
+    finally:
+        if cursor:
+            cursor.close()
+        if conn:
+            conn.close()
+    return render_template("delete_list.html", records=result)
 
 
 @app.route("/delete", methods=["GET,Delete"])
