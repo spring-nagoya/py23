@@ -9,13 +9,11 @@
 
 <body>
     <table>
-        <th>
         <td>ID</td>
         <td>name</td>
         <td>PASSWORD</td>
         <td>MAILADDRESS</td>
         <td>削除</td>
-        </th>
         {% for record in records %}
         <tr>
             <td><a href="/delete/?id={(record[0])}">{{ record[0] }}</a></td>
